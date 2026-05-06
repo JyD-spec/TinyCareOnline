@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Correo Confirmado - TinyCare</title>
+    <!-- Reutilizamos el CSS que creamos para mantener el mismo diseño pastel -->
+    <link rel="stylesheet" href="update-password.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="header">
+                <h1>🧸 TinyCare</h1>
+            </div>
+            <div class="body" id="status-container">
+                <h2>Verificando...</h2>
+                <p>Por favor, espera un momento.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Supabase puede enviar errores en los parámetros de la URL (query) o en el fragmento (hash)
+            const hashParams = new URLSearchParams(window.location.hash.substring(1));
+            const queryParams = new URLSearchParams(window.location.search);
+            const container = document.getElementById("status-container");
+
+            const error = hashParams.get("error") || queryParams.get("error");
+            const errorDesc = hashParams.get("error_description") || queryParams.get("error_description");
+
+            if (error) {
+                // Si el enlace expiró o ya fue usado y lanza un error
+                const msg = errorDesc ? decodeURIComponent(errorDesc).replace(/\+/g, ' ') : "El enlace es inválido o ha caducado.";
+                container.innerHTML = `
+                    <h2 style="color: #ff6b6b; font-size: 20px; margin-top: 0; margin-bottom: 5px;">Enlace no válido</h2>
+                    <p style="color: #666666; font-size: 14px;">${msg}</p>
+                    <p style="font-size: 14px; margin-top: 20px; color: #666666;">
+                        Por favor, intenta registrarte o solicita un nuevo enlace desde la aplicación.
+                    </p>
+                `;
+            } else {
+                // Si no hay error, Supabase ya validó el correo antes de redirigir aquí
+                container.innerHTML = `
+                    <h2 style="color: #4CAF50; font-size: 20px; margin-top: 0; margin-bottom: 5px;">¡Correo Confirmado! 🎉</h2>
+                    <p style="color: #666666; font-size: 14px;">Tu cuenta ha sido verificada exitosamente.</p>
+                    <p style="font-size: 14px; margin-top: 25px; color: #4A4A4A; font-weight: bold;">
+                        Ya puedes cerrar esta ventana y regresar a la aplicación de TinyCare.
+                    </p>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>
