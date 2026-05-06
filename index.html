@@ -6,8 +6,6 @@
   <title>Bienvenido a TinyCare</title>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <style>
-  </style>
 </head>
 <body>
   <!-- Hero SVG Wave Background -->
@@ -44,7 +42,7 @@
       </div>
       <div class="menu">
         <a href="#inicio">Inicio</a>
-        <a href="#servicios">Que hacemos</a>
+        <a href="#servicios">Qué hacemos</a>
         <a href="#contacto">Contacto</a>
       </div>
     </nav>
@@ -55,27 +53,62 @@
       <p style="color:#fff; text-shadow:0 2px 8px #b4f8c8aa;">
         TinyCare es una prenda de monitoreo inteligente que se diferencia del resto al estar completamente equipada.<br>
         ¡Confía en nosotros para acompañar sus primeros pasos!
-      </pstyle=>
+      </p>
       <br/>
       <br/>
+      
+      <!-- Servicios -->
       <div class="info-cards" id="servicios">
         <div class="info-card">
           <h3>Monitoreo</h3>
-          <p>Mediante nuestro sistema de monitoreo inteligente, conocemos el estado de su bebe en todo momento.</p>
+          <p>Mediante nuestro sistema de monitoreo inteligente, conocemos el estado de su bebé en todo momento.</p>
         </div>
         <div class="info-card">
           <h3>Fabricación Textil</h3>
-          <p>Creamos las prendas mas comodas y de calza perfecta para tu bebe.</p>
+          <p>Creamos las prendas más cómodas y de calce perfecto para tu bebé.</p>
         </div>
         <div class="info-card">
           <h3>Seguridad Familiar</h3>
           <p>Reportes diarios, monitoreo constante y alertas preparadas. 
             <br/>
-            Todo para que tu bebe este seguro.
+            Todo para que tu bebé esté seguro.
           </p>
         </div>
       </div>
     </section>
+
+    <!-- Nueva Sección de Contacto -->
+    <section class="contact-section" id="contacto">
+      <h2>Contáctanos</h2>
+      <!-- FormSubmit action hacia tu correo -->
+      <form action="https://formsubmit.co/tinypulseonline@gmail.com" method="POST">
+        
+        <!-- Opciones útiles de FormSubmit -->
+        <input type="hidden" name="_subject" value="¡Nuevo mensaje de TinyCare!">
+        <!-- Desactiva el captcha para una experiencia más fluida (opcional) -->
+        <input type="hidden" name="_captcha" value="false">
+        <!-- Opcional: Redirigir a tu misma página tras enviar -->
+        <input type="hidden" name="_next" value="#"> 
+
+        <label for="name">Nombre</label>
+        <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+
+        <label for="email">Correo electrónico</label>
+        <input type="email" id="email" name="email" placeholder="tu@correo.com" required>
+
+        <label for="message">Mensaje</label>
+        <textarea id="message" name="message" placeholder="¿En qué te podemos ayudar?" required></textarea>
+
+        <button type="submit">Enviar mensaje</button>
+      </form>
+    </section>
+  </div>
+  
+  <footer>
+    © 2026 TinyCare · Cuidando a tu bebé, en cada latido
+  </footer>
+</body>
+</html>
   </div>
   <footer>
     © 2026 TinyCare · Cuidando a tu bebe, en cada latido
