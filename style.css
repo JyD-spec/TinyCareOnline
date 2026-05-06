@@ -250,3 +250,17 @@ footer {
     .hero { min-height: 70vh; align-items: center; text-align: center; }
     .hero-bg-svg { height: 320px; }
 }
+
+.contact-section input, .contact-section textarea {
+    width: 100%; /* Cambiado a 100% */
+    box-sizing: border-box; /* Añadido para que el padding no expanda el ancho */
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1.5px solid #e3f6fd;
+    background: #f7faff;
+    font: inherit;
+    margin-bottom: 16px;
+    font-size: 1rem;
+    outline: none;
+    transition: border .15s;
+}
